@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FNDEV</title>
+    <!--materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#212121" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+      <nav class="grey darken-4">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="#home" class="brand-logo"
+              ><img src="img/logo/brand.svg"
+            /></a>
+            <a href="#" data-target="mobile-nav" class="sidenav-trigger"
+              ><img src="../img/logo/menu.svg" alt=""
+            /></a>
+            <ul class="topnav right hide-on-med-and-down"></ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- end navbar -->
+
+    <!-- Sidebar -->
+    <ul class="sidenav grey darken-4" id="mobile-nav"></ul>
+
+    <div id="body-content"></div>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function() {
+              console.log("Service Worker registration success.");
+            })
+            .catch(function() {
+              console.log("Service Worker registration failed");
+            });
+        });
+      } else {
+        console.log("Browser not support Service Worker.");
+      }
+    </script>
+  </body>
+</html>
