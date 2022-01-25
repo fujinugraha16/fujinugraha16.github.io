@@ -1,11 +1,11 @@
-const CACHE_NAME = "fndev-v9";
+const CACHE_NAME = "fndev-v13";
 var urlsToCache = [
   "/",
   "/index.html",
   "/nav.html",
   "/pages/home.html",
-  "/pages/about.html",
   "/pages/portfolio.html",
+  "/pages/about.html",
   "/css/materialize.min.css",
   "/css/style.css",
   "/js/materialize.min.js",
@@ -65,7 +65,9 @@ self.addEventListener("activate", function (event) {
             return caches.delete(cacheName);
           }
         })
-      );
+      ).then(function () {
+        return self.clients.claim();
+      });
     })
   );
 });
