@@ -49,14 +49,14 @@
     <script src="js/script.js"></script>
     <script>
       if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function() {
+        window.addEventListener("load", function () {
           navigator.serviceWorker
             .register("/service-worker.js")
-            .then(function() {
+            .then(function () {
               console.log("Service Worker registration success.");
             })
-            .catch(function() {
-              console.log("Service Worker registration failed");
+            .catch(function () {
+              console.log("Service Worker registration failed.");
             });
         });
       } else {
